@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0-alpha1/JSXTransformer.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/jsx">
+        class CourseComponent extends React.Component{
+            render(){
+                return <div> 
+                        <h1> {this.props.coursename} </h1>
+                        <h5> Duration: {this.props.duration} </h5>
+                    </div>
+            }
+        }
+        class ListOfCourses extends React.Component{
+            constructor(){
+                super();
+                this.courseOne = "React";
+                this.courseTwo = "Angular";
+                this.courseThree = "Node";
+            }
+            render(){
+                return <div>
+                            <CourseComponent coursename = {this.courseOne} duration = "3 days"/>
+                            <CourseComponent coursename = {this.courseTwo} duration = "2 days"/>
+                            <CourseComponent coursename = {this.courseThree} duration = "3 days"/>
+                        </div>
+            }
+        }
+        ReactDOM.render(<ListOfCourses/>,document.getElementById('container'))
+    </script>
+</body>
+</html>

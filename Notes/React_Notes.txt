@@ -1,0 +1,6 @@
+*ELEMENTS:
+    2 ways : i) using React.createElement(element,attributes,children)
+             ii) using jsx(not the best practises)
+
+*COMPONENTS:
+    
