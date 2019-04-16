@@ -2,5 +2,16 @@
     2 ways : i) using React.createElement(element,attributes,children)
              ii) using jsx(not the best practises)
 
-*COMPONENTS:
-    
+*COMPONENTS: 
+        - render() method is a mandatory method which renders the element that the component will return.
+
+*PROPS: 
+        -props are read only entity
+
+*STATE: 
+        -states are immutable entity
+
+*REF:
+        - 'ref' is used as id in react
+
+*GITHUB LINK: https://github.com/SumeetWajpe/Sapient_ID_102_April_2019
