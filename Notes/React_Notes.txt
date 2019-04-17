@@ -14,4 +14,13 @@
 *REF:
         - 'ref' is used as id in react
 
+*LIFE CYCLE HOOKS:
+        -componentWillMount
+        -componentDidMount
+        -componentWillReceiveProps
+        -shouldComponentUpdate
+        -componentWillUpdate
+        -componentDidUpdate
+        -componentwillUnmount
+
 *GITHUB LINK: https://github.com/SumeetWajpe/Sapient_ID_102_April_2019

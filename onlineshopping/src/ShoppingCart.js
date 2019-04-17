@@ -1,10 +1,14 @@
 import React from 'react';
 import Product from './Product';
+import Form from './Form';
+import './ShoppingCart.css'
 
 export default class ShoppingCart extends React.Component {
     constructor() {
         super();
-        this.state ={cart:
+        console.log("construtor");
+        this.state = {
+            cart:
             [
                 {
                     id: 101,
@@ -59,21 +63,49 @@ export default class ShoppingCart extends React.Component {
 
     }
 
-    DeleteTheItem(theid){
+    DeleteTheItem(theid) {
         console.log(theid);
-        var theNewList = this.state.cart.filter(v => v.id!= theid);
-        this.setState({cart: theNewList});
+        var theNewList = this.state.cart.filter(v => v.id != theid);
+        this.setState({ cart: theNewList });
+    }
+
+    NewState(obj){
+        this.setState({cart:[...this.state.cart,obj]})
+    }
+   
+
+    componentWillMount() {
+        console.log('within parent componentWillMount..');
+    }
+
+    componentDidMount() {
+        console.log('within parent componentDidMount..');
+    }
+
+    shouldComponentUpdate() {
+        console.log('within parent shouldComponentupdate..');
+        return true;
+    }
+
+    componentWillUpdate() {
+        console.log('within parent componentwillUpdate..');
+    }
+
+    componentDidUpdate() {
+        console.log('within parent componentDidUpdate..');
     }
 
 
 
     render() {
+        console.log("rendfer");
         var products = this.state.cart.map(c => <Product details={c} key={c.id} deleteitem={this.DeleteTheItem.bind(this)} />);
         return (
             <div>
+                <Form addCard={this.NewState.bind(this)}/>
                 {products}
-
             </div>
+
         )
     }
 }
