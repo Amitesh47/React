@@ -6,9 +6,9 @@ export default class Product extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: this.props.details.name,
+            name: this.props.details.title,
             rating: this.props.details.rating,
-            img: this.props.details.img,
+            img: this.props.details.ImageUrl,
             likes: this.props.details.likes,
             quantity: this.props.details.quantity
         }
@@ -28,15 +28,15 @@ export default class Product extends React.Component {
             <div >
                 <div className="col-md-4">
                     <div className="card">
-                        <img className="card-img-top" src={this.state.img} alt="Card image cap"></img>
+                        <img className="card-img-top" src={this.props.details.ImageUrl} alt="Card image cap"></img>
                         <div className="card-body">
-                            <h5 className="card-title"><h2>{this.state.name}</h2></h5>
+                            <div className="card-title"><h2>{this.props.details.title}</h2></div>
 
                         </div>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item">Rating: {this.state.rating}</li>
-                            <li className="list-group-item">Quantity: {this.state.quantity}</li>
-                            <li className="list-group-item">Likes: {this.state.likes}</li>
+                            <li className="list-group-item">Rating: {this.props.details.rating}</li>
+                            <li className="list-group-item">Quantity: {this.props.details.quantity}</li>
+                            <li className="list-group-item">Likes: {this.props.details.likes}</li>
                         </ul>
                         <div className="card-body">
                             <div className="row">

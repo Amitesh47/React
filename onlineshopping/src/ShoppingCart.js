@@ -1,108 +1,73 @@
 import React from 'react';
 import Product from './Product';
 import Form from './Form';
-import './ShoppingCart.css'
+import axios from 'axios';
+import './ShoppingCart.css';
+
+import Progress from './Progress';
 
 export default class ShoppingCart extends React.Component {
     constructor() {
         super();
-        console.log("construtor");
-        this.state = {
-            cart:
-            [
-                {
-                    id: 101,
-                    name: 'Tshirt',
-                    rating: 4.5,
-                    img: 'tshirt.jpg',
-                    likes: 120,
-                    quantity: 10
-                },
-                {
-                    id: 102,
-                    name: 'Jeans',
-                    rating: 4,
-                    img: 'jeans.jpg',
-                    likes: 112,
-                    quantity: 15
-                },
-                {
-                    id: 103,
-                    name: 'Shoes',
-                    rating: 4.2,
-                    img: 'shoes.png',
-                    likes: 1232,
-                    quantity: 12
-                },
-                {
-                    id: 104,
-                    name: 'Sweatshirt',
-                    rating: 5,
-                    img: 'sweat.jpg',
-                    likes: 103,
-                    quantity: 145
-                },
-                {
-                    id: 105,
-                    name: 'Shades',
-                    rating: 4,
-                    img: 'sha.png',
-                    likes: 120,
-                    quantity: 10
-                },
-                {
-                    id: 106,
-                    name: 'Formals',
-                    rating: 4,
-                    img: 'formals.jpg',
-                    likes: 120,
-                    quantity: 10
-                }
-            ]
-        }
-
+        // console.log("construtor");
+        this.state = { cart: [] }
     }
 
     DeleteTheItem(theid) {
-        console.log(theid);
+        // console.log(theid);
         var theNewList = this.state.cart.filter(v => v.id != theid);
         this.setState({ cart: theNewList });
     }
 
-    NewState(obj){
-        this.setState({cart:[...this.state.cart,obj]})
+    NewState(obj) {
+        this.setState({ cart: [...this.state.cart, obj] })
     }
-   
+
 
     componentWillMount() {
-        console.log('within parent componentWillMount..');
+        // console.log('within parent componentWillMount..');
     }
 
     componentDidMount() {
-        console.log('within parent componentDidMount..');
+        // console.log('within parent componentDidMount..');
+        let thePromise = axios.get('https://api.myjson.com/bins/rwxws');
+        thePromise.then(
+            (response) => {
+                console.log(response.data);
+                this.setState({ cart: response.data })
+            },
+            (err) => { }
+        )
     }
 
+
     shouldComponentUpdate() {
-        console.log('within parent shouldComponentupdate..');
+        // console.log('within parent shouldComponentupdate..');
         return true;
     }
 
     componentWillUpdate() {
-        console.log('within parent componentwillUpdate..');
+        // console.log('within parent componentwillUpdate..');
+
     }
 
     componentDidUpdate() {
-        console.log('within parent componentDidUpdate..');
+        // console.log('within parent componentDidUpdate..');
     }
 
 
 
     render() {
-        console.log("rendfer");
-        var products = this.state.cart.map(c => <Product details={c} key={c.id} deleteitem={this.DeleteTheItem.bind(this)} />);
+        // console.log("rendfer");
+        if (this.state.cart.length == 0) {
+            var products = <Progress />
+        } else {
+            var products = this.state.cart.map(c => <Product details={c} key={c.id} deleteitem={this.DeleteTheItem.bind(this)} />);
+        }
         return (
             <div>
-                <Form addCard={this.NewState.bind(this)}/>
+                <Form addCard={this.NewState.bind(this)} />
+
                 {products}
             </div>
 

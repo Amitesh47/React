@@ -23,4 +23,15 @@
         -componentDidUpdate
         -componentwillUnmount
 
-*GITHUB LINK: https://github.com/SumeetWajpe/Sapient_ID_102_April_2019
+*GITHUB LINK: https://github.com/SumeetWajpe/Sapient_ID_102_April_20
+
+*LINK:    https://api.myjson.com/bins/rwxws
+
+*FUNCTIONAL COMPONENTS:
+        -also called as Stateless Components.
+        -used when we dont require a state.
+        -doesnt have life cycle hooks.
+        -doesnt have a render method.
+
+*ROUTING:
+        -
