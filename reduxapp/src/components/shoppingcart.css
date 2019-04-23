@@ -1,0 +1,22 @@
+.form{
+    width: 500px;
+    margin-left: 400px;
+    margin-bottom: 100px;
+    margin-top:20px;
+    border: 1px solid blue;
+    padding: 10px;
+    box-shadow: 5px 10px lightblue
+}
+
+.Add{
+    margin-left: 150px;
+    width:200px
+}
+
+img{
+    margin-left: 500px;
+}
+
+.jumbotron{
+    text-align: center;
+}
