@@ -27,10 +27,10 @@ export default class Product extends React.Component{
                         <div className="card-body">
                             <div className="row">
                                 <div className="col-md-2 col-md-offset-2">
-                                    <button className="btn btn-primary" >Like<span className="glyphicon glyphicon-thumbs-up"></span></button>
+                                    <button className="btn btn-primary" onClick = {this.props.IncrementLikes.bind(null,this.props.index)}>Like<span className="glyphicon glyphicon-thumbs-up"></span></button>
                                 </div>
                                 <div className="col-md-2 ">
-                                    <button className="btn btn-warning" >Dislike<span className="glyphicon glyphicon-thumbs-down"></span></button>
+                                    <button className="btn btn-warning" onClick = {this.props.DecrementLikes.bind(null,this.props.index)} >Dislike<span className="glyphicon glyphicon-thumbs-down"></span></button>
                                 </div>
                                 
                             </div>

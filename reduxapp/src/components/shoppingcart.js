@@ -9,7 +9,7 @@ export class ShoppingCart extends React.Component {
     }
     render() {
         // console.log(this.props);
-        var products = this.props.allProducts.map(c => <Product details={c} key={c.id}{...this.props}  />);
+        var products = this.props.allProducts.map((c,i) => <Product details={c} index={i} key={c.id}{...this.props}  />);
 
         return (
             <React.Fragment>

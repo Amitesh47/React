@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
  export default class Navbar extends React.Component{
      render(){
@@ -6,11 +7,11 @@ import React from 'react';
             <nav className="navbar navbar-inverse">
             <div className="container-fluid">
               <div className="navbar-header">
-                <a className="navbar-brand" href="#">My Cart</a>
+                <Link className="navbar-brand" to="/">My Cart</Link>
               </div>
               <ul className="nav navbar-nav">
-                <li className="active"><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
+                <li className="active"><Link to="/">Home</Link></li>
+                <li>< Link to="/newproduct">Add New Product</Link></li>
 
               </ul>
             </div>
